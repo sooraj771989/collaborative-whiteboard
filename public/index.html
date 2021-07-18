@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>collaborative-whiteboard</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+    />
+  </head>
+
+  <body>
+    <canvas class="whiteboard"></canvas>
+
+    <div class="head">
+      <strong>collaborative-whiteboard </strong> - Share this
+      <a
+        class="linkToBoard"
+        style="cursor: pointer; color: #32056d"
+        target="_blank"
+        >link</a
+      >
+      with others to collaborate
+    </div>
+
+    <div class="colors">
+      <div class="color black"></div>
+      <div class="color red"></div>
+      <div class="color green"></div>
+      <div class="color blue"></div>
+      <div class="color yellow"></div>
+      <div class="color white">
+        <i class="fa fa-eraser fa-2x eraser" aria-hidden="true"></i>
+      </div>
+    </div>
+
+    <div class="sizes">
+      <div class="size 2 two">X</div>
+      <div class="size 4 four">2X</div>
+      <div class="size 8 six">4X</div>
+      <div class="size 10 ten">5X</div>
+      <div id="clear-all" class="size clear-all">Clear All</div>
+      <!--<div class="size 12">6X</div>-->
+    </div>
+
+    <!-- Videp Trial-->
+
+    <div class="communication-conatiner">
+      <!--<div class="videoConatiner">
+   <div id="video-grid"></div>
+   </div>-->
+      <div class="textConatiner">
+        <ul class="pages">
+          <li class="chat page">
+            <div class="chatArea">
+              <ul class="messages"></ul>
+            </div>
+            <input class="inputMessage" placeholder="Type Here..." />
+          </li>
+          <li class="login page">
+            <div class="form">
+              <h3 class="title">Enter your name</h3>
+              <input class="usernameInput" type="text" maxlength="14" />
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="main.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <!--<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>-->
+    <script type="text/javascript">
+      $(document).ready(function () {
+        var board_url = window.location.href;
+        $(".linkToBoard").attr("href", board_url);
+      });
+    </script>
+
+    <script src="chat.js"></script>
+  </body>
+</html>
